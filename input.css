@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-dark: #202020;
+  --color-light: #eeeeee;
+  --color-primary: #2D99FF;
+  --color-secondary: #2D00FF;
+}
+
+/* fonts */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/BricolageGrotesque-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/BricolageGrotesque-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/BricolageGrotesque-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/BricolageGrotesque-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/BricolageGrotesque-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/BricolageGrotesque-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/BricolageGrotesque-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+}
+
+body {
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+@layer utilities {
+  html {
+    scrollbar-width: auto;
+    scrollbar-color: #888 transparent;
+  }
+  section {
+    @apply py-5
+  }
+  main > section {
+    h2 {
+      @apply md:text-4xl text-3xl font-semibold mb-2;
+    }
+    h3 {
+      @apply text-xl lg:text-2xl font-semibold mb-2;
+    }
+    p {
+      @apply mb-2 text-sm lg:text-base opacity-90 font-light;
+    }
+    img {
+      @apply border-2 lg:border-4 border-black/20 dark:bg-white/20 rounded-2xl lg:rounded-3xl mb-2 w-full;
+    }
+    a {
+      @apply border-b-2 border-white;
+    }
+    ul {
+      @apply list-decimal list-inside text-sm lg:text-base opacity-90 font-light;
+    }
+    pre {
+      @apply overflow-auto bg-black/10 dark:bg-white/10 p-3 rounded-3xl border-2 border-black/15 dark:border-white/20 dark:[box-shadow:inset_0_0_20px_rgb(50,50,50)] [box-shadow:inset_0_0_20px_rgb(180,180,180)];
+    }
+  }
+}
+.active {
+  @apply bg-light dark:bg-dark text-primary;
+}
+/* global.css */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* navbar height অনুযায়ী adjust করো */
+}
+
+#sideBar {
+  ul {
+    li {
+      a {
+        @apply px-5 py-2 hover:bg-dark rounded-full block;
+      }
+    }
+  }
+}
