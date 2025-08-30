@@ -20,13 +20,10 @@
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
-    --text-2xl: 1.5rem;
-    --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
-    --font-weight-light: 300;
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --radius-2xl: 1rem;
@@ -36,10 +33,10 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-dark: #202020;
-    --color-light: #eeeeee;
-    --color-primary: #2D99FF;
-    --color-secondary: #2D00FF;
+    --color-dark: var(--color-dark);
+    --color-light: var(--color-light);
+    --color-primary: var(--color-primary);
+    --color-secondary: var(--color-secondary);
   }
 }
 @layer base {
@@ -269,6 +266,9 @@
   .w-full {
     width: 100%;
   }
+  .w-max {
+    width: max-content;
+  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -280,6 +280,9 @@
   }
   .flex-col {
     flex-direction: column;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
   }
   .items-center {
     align-items: center;
@@ -461,10 +464,13 @@
       }
     }
   }
-  .hover\:bg-primary {
+  .hover\:bg-primary\/50 {
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-primary);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-primary) 50%, transparent);
+        }
       }
     }
   }
@@ -637,44 +643,6 @@
     }
   }
 }
-@font-face {
-  font-family: "Bricolage Grotesque";
-  src: url("../fonts/BricolageGrotesque-ExtraLight.ttf") format("truetype");
-  font-weight: 200;
-}
-@font-face {
-  font-family: "Bricolage Grotesque";
-  src: url("../fonts/BricolageGrotesque-Light.ttf") format("truetype");
-  font-weight: 300;
-}
-@font-face {
-  font-family: "Bricolage Grotesque";
-  src: url("../fonts/BricolageGrotesque-Regular.ttf") format("truetype");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Bricolage Grotesque";
-  src: url("../fonts/BricolageGrotesque-Medium.ttf") format("truetype");
-  font-weight: 500;
-}
-@font-face {
-  font-family: "Bricolage Grotesque";
-  src: url("../fonts/BricolageGrotesque-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-}
-@font-face {
-  font-family: "Bricolage Grotesque";
-  src: url("../fonts/BricolageGrotesque-Bold.ttf") format("truetype");
-  font-weight: 700;
-}
-@font-face {
-  font-family: "Bricolage Grotesque";
-  src: url("../fonts/BricolageGrotesque-ExtraBold.ttf") format("truetype");
-  font-weight: 800;
-}
-body {
-  font-family: "Bricolage Grotesque", sans-serif;
-}
 @layer utilities {
   html {
     scrollbar-width: auto;
@@ -691,8 +659,8 @@ body {
       --tw-font-weight: var(--font-weight-semibold);
       font-weight: var(--font-weight-semibold);
       @media (width >= 48rem) {
-        font-size: var(--text-4xl);
-        line-height: var(--tw-leading, var(--text-4xl--line-height));
+        font-size: var(--text-5xl);
+        line-height: var(--tw-leading, var(--text-5xl--line-height));
       }
     }
     h3 {
@@ -702,20 +670,18 @@ body {
       --tw-font-weight: var(--font-weight-semibold);
       font-weight: var(--font-weight-semibold);
       @media (width >= 64rem) {
-        font-size: var(--text-2xl);
-        line-height: var(--tw-leading, var(--text-2xl--line-height));
+        font-size: var(--text-3xl);
+        line-height: var(--tw-leading, var(--text-3xl--line-height));
       }
     }
     p {
       margin-bottom: calc(var(--spacing) * 2);
       font-size: var(--text-sm);
       line-height: var(--tw-leading, var(--text-sm--line-height));
-      --tw-font-weight: var(--font-weight-light);
-      font-weight: var(--font-weight-light);
       opacity: 90%;
       @media (width >= 64rem) {
-        font-size: var(--text-base);
-        line-height: var(--tw-leading, var(--text-base--line-height));
+        font-size: var(--text-lg);
+        line-height: var(--tw-leading, var(--text-lg--line-height));
       }
     }
     img {
@@ -752,12 +718,10 @@ body {
       list-style-type: decimal;
       font-size: var(--text-sm);
       line-height: var(--tw-leading, var(--text-sm--line-height));
-      --tw-font-weight: var(--font-weight-light);
-      font-weight: var(--font-weight-light);
       opacity: 90%;
       @media (width >= 64rem) {
-        font-size: var(--text-base);
-        line-height: var(--tw-leading, var(--text-base--line-height));
+        font-size: var(--text-lg);
+        line-height: var(--tw-leading, var(--text-lg--line-height));
       }
     }
     pre {
