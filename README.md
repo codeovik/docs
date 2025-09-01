@@ -1,8 +1,24 @@
-## The biggest documentation site for ever by CodeOVIK
-Inspired: [Dribbble](https://dribbble.com/shots/22653997-API-Documentation-Material-You-m3-Design-system)
-Live demo: [Click me](https://codeovik.github.io/docs/src)
+This is a documentation website for the project for themeforest. This porject will help you to create a documentation website for your project without css. Beacuse there was predefined css in the project. Watch live preview for more details: [https://codeovik.github.io/docs/src/](https://codeovik.github.io/docs/src/)
+
+## Technologies used:
+1. HTML
+2. Tailwind CSS
+
+## To run the project:
+1. Clone the repository
+```bash
+git clone https://github.com/codeovik/docs.git
+```
+2. Install dependencies
+```bash
+npm install
+```
+3. Run the development server
+```bash
+npm run dev
+```
 
 ### Development timeline:
-1. Started: 27Aug, 2025
-2. End: 28Aug, 2025
-3. Added Navbar links(support, rate this etc) in mobile. added custom.css and removed unless fonts
+1. 27 August, 2025 - Project started
+2. 28 August, 2025 - Project ended
+3. 30 August, 2025 - Added Navbar links(support, rate this etc) in mobile. added custom.css and removed unless fonts
