@@ -11,7 +11,7 @@ git clone https://github.com/codeovik/docs.git
 ```
 2. Go Project Directory
 ```bash
-git clone https://github.com/codeovik/docs.git
+cd docs
 ```
 3. Install dependencies
 ```bash
