@@ -6,6 +6,7 @@
   --color-light: var(--color-light);
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
+  --color-constrant: var(--color-constrant);
 }
 
 /* main */
@@ -18,26 +19,37 @@
     @apply py-5
   }
   main > section {
+    /* heading */
     h2 {
-      @apply md:text-5xl text-3xl font-semibold mb-2;
+      @apply md:text-4xl text-3xl font-semibold mb-4 block border-b-2 border-black dark:border-white;
     }
+    /* sub heading */
     h3 {
-      @apply text-xl lg:text-3xl font-semibold mb-2;
+      @apply text-xl lg:text-2xl font-semibold mb-4 mt-10 w-max border-b-2 border-black dark:border-white;
     }
+    /* description */
     p {
-      @apply mb-2 text-sm lg:text-lg opacity-90;
+      @apply mb-4 text-sm lg:text-lg opacity-90;
     }
+    /* img */
     img {
-      @apply border-2 lg:border-4 border-black/20 dark:bg-white/20 rounded-2xl lg:rounded-3xl mb-2 w-full;
+      @apply border-2 border-black/20 dark:bg-white/20 rounded-xl mb-2 w-full;
     }
+    /* link */
     a {
-      @apply border-b-2 border-white;
+      @apply border-b-2 border-black dark:border-white;
     }
+    /* ul */
     ul {
       @apply list-decimal list-inside text-sm lg:text-lg opacity-90;
     }
+    /* ol */
+    ol {
+      @apply list-disc list-inside text-sm lg:text-lg opacity-90;
+    }
+    /* code */
     pre {
-      @apply overflow-auto bg-black/10 dark:bg-white/10 p-3 rounded-3xl border-2 border-black/15 dark:border-white/20 dark:[box-shadow:inset_0_0_20px_rgb(50,50,50)] [box-shadow:inset_0_0_20px_rgb(180,180,180)];
+      @apply overflow-auto bg-black/10 dark:bg-white/10 p-3 rounded-xl border-2 border-black/15 dark:border-white/20 italic text-sm;
     }
   }
 }
@@ -58,7 +70,7 @@ html {
   ul {
     li {
       a {
-        @apply px-5 py-2 hover:bg-dark rounded-full block;
+        @apply px-5 py-2 hover:bg-light dark:hover:bg-dark rounded-xl block;
       }
     }
   }
